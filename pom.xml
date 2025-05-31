@@ -70,11 +70,11 @@
 		</dependency>
 
 		<!-- Knife4j 兼容 Spring Boot 3 的版本 -->
-<!--		<dependency>-->
-<!--			<groupId>com.github.xiaoymin</groupId>-->
-<!--			<artifactId>knife4j-openapi3-jakarta-spring-boot-starter</artifactId>-->
-<!--			<version>${knife4j}</version>-->
-<!--		</dependency>-->
+		<dependency>
+			<groupId>com.github.xiaoymin</groupId>
+			<artifactId>knife4j-openapi3-jakarta-spring-boot-starter</artifactId>
+			<version>${knife4j}</version>
+		</dependency>
 
 		<!-- Spring Boot 3.x 必需的 Springdoc UI 支持 -->
 		<dependency>

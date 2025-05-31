@@ -45,12 +45,11 @@ public class WebMvcConfig implements WebMvcConfigurer {
      * Extend message converters
      * @param converters
      */
-    public void extendMessageConverters(List<HttpMessageConverter<?>> converters) {
-        log.info("Customizing message converters...");
-        MappingJackson2HttpMessageConverter converter = new MappingJackson2HttpMessageConverter();
-        converter.setObjectMapper(new ObjectMapper());
-        converters.add(0, converter);
-    }
-
+//    public void extendMessageConverters(List<HttpMessageConverter<?>> converters) {
+//        log.info("Customizing message converters...");
+//        MappingJackson2HttpMessageConverter converter = new MappingJackson2HttpMessageConverter();
+//        converter.setObjectMapper(new ObjectMapper());
+//        converters.add(0, converter);
+//    }
 
 }

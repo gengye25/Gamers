@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/gamer")
 @Slf4j
-@Tag(name = "api-s for gamer")
+@Tag(name = "gamer")
 public class GamerController {
 
     @Autowired
