@@ -1,4 +1,4 @@
-package com.gamers.model.dto;
+package com.gamer.model.dto;
 
 import lombok.Data;
 

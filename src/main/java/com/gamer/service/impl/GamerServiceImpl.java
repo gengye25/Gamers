@@ -1,7 +1,7 @@
-package com.gamers.service.impl;
+package com.gamer.service.impl;
 
-import com.gamers.model.dto.GamerDTO;
-import com.gamers.service.GamerService;
+import com.gamer.model.dto.GamerDTO;
+import com.gamer.service.GamerService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 

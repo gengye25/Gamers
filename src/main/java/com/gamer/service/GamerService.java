@@ -1,6 +1,6 @@
-package com.gamers.service;
+package com.gamer.service;
 
-import com.gamers.model.dto.GamerDTO;
+import com.gamer.model.dto.GamerDTO;
 
 public interface GamerService {
 

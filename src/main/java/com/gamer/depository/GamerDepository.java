@@ -1,6 +1,6 @@
-package com.gamers.depository;
+package com.gamer.depository;
 
-import com.gamers.model.entity.Gamer;
+import com.gamer.model.entity.Gamer;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

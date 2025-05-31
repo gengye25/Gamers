@@ -1,4 +1,4 @@
-package com.gamers.common.result;
+package com.gamer.common.result;
 
 import lombok.Data;
 

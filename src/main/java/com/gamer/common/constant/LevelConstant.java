@@ -1,4 +1,4 @@
-package com.gamers.common.constant;
+package com.gamer.common.constant;
 
 /**
  * levels in a game
