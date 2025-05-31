@@ -1,1 +1,22 @@
-spring.application.name=gamers
+#spring.application.name=gamer
+server:
+  port: 8080
+
+spring:
+  profiles:
+    active: dev
+  main:
+    allow-circular-references: true
+  datasource:
+    driver-class-name: ${gamer.datasource.driver-class-name}
+    url: jdbc:mysql://${gamer.datasource.host}:${gamer.datasource.port}/${gamer.datasource.database}?serverTimezone=UTC&useSSL=false
+    username: ${gamer.datasource.username}
+    password: ${gamer.datasource.password}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: true
