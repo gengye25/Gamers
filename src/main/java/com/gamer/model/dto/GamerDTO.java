@@ -1,15 +1,24 @@
 package com.gamer.model.dto;
 
+import lombok.Builder;
 import lombok.Data;
 
+import java.util.List;
+
 @Data
+@Builder
 public class GamerDTO {
 
-    private Long userId;
+    private String name;
 
     private String geography;
 
-    private String game;
+    private List<GameLevelDTO> games;
 
-    private String level;
+    @Data
+    public static class GameLevelDTO {
+        private String name;
+        private String level;
+    }
+
 }

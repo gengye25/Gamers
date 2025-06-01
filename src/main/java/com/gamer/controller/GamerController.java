@@ -21,14 +21,14 @@ public class GamerController {
 
     /**
      * saveing new gamers (with the game)
-     * @param gamerdto
+     * @param gamerDTO
      */
     @PostMapping
     @Operation(summary = "Create a new gamer")
-    public Result save(@RequestBody GamerDTO gamerdto) {
-        log.info("New gamer: {}", gamerdto);
-        gamerService.save(gamerdto);
-        return Result.success();
+    public Result save(@RequestBody GamerDTO gamerDTO) {
+        log.info("New gamer: {}", gamerDTO);
+        gamerService.save(gamerDTO);
+        return Result.success("Gamer Created");
     }
 
 //    @GetMapping

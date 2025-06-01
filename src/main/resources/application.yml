@@ -14,7 +14,7 @@ spring:
     password: ${gamer.datasource.password}
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: none
     show-sql: true
     open-in-view: false
     properties:
