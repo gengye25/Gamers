@@ -1,4 +1,4 @@
-package com.gamer.service.impl;
+package com.gamer.service.Impl;
 
 import com.gamer.common.constant.MessageConstant;
 import com.gamer.common.component.GamerGameComponent;

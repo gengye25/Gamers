@@ -1,13 +1,13 @@
-package com.gamer.service.impl;
+package com.gamer.service.Impl;
 
 import com.gamer.common.constant.GeographyConstant;
 import com.gamer.common.constant.MessageConstant;
 import com.gamer.common.component.GamerGameComponent;
 import com.gamer.common.exception.BusinessException;
 import com.gamer.model.dto.GamerDTO;
-import com.gamer.model.dto.GamerGameDTO;
-import com.gamer.model.entity.Game;
+import com.gamer.model.dto.SearchDTO;
 import com.gamer.model.entity.Gamer;
+import com.gamer.model.vo.AutoMatchGamerVO;
 import com.gamer.repository.GameRepository;
 import com.gamer.repository.GamerGameRepository;
 import com.gamer.repository.GamerRepository;
@@ -18,8 +18,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.List;
 
 @Service
 @Slf4j
@@ -49,27 +48,11 @@ public class GamerServiceImpl implements GamerService {
         gamer = gamerRepository.save(gamer);
         log.info("Gamer [{}] created", gamer.getName());
 
-        if(gamerDTO.getGames() != null && !gamerDTO.getGames().isEmpty()){
-            Map<String, Game> gameCache = new HashMap<>();
-            for(GamerDTO.GameLevelDTO g : gamerDTO.getGames()){
-                if (g.getName() == null || g.getName().isBlank()) { // Game name not null
-                    throw new BusinessException(MessageConstant.FIELD_NOT_BLANK + "Game");
-                }
+    }
 
-                Game game = gameCache.computeIfAbsent(g.getName(), name -> gameRepository.findByName(name)
-                        .orElseGet(() -> gameRepository.save(new Game(null, g.getName(), null))));
-
-                GamerGameDTO ggDTO = GamerGameDTO.builder()
-                        .userID(gamer.getId())
-                        .gameID(game.getId())
-                        .levelCode(g.getLevelCode())
-                        .build();
-
-                gamerGameComponent.bind(ggDTO);
-            }
-
-        }
-
+    @Override
+    public List<AutoMatchGamerVO> search(SearchDTO searchDTO) {
+        return List.of();
     }
 
 }

@@ -5,6 +5,8 @@ import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 import lombok.extern.slf4j.Slf4j;
 
+import java.io.Serializable;
+
 @Data
 @Slf4j
 @Builder
@@ -12,7 +14,7 @@ import lombok.extern.slf4j.Slf4j;
 @AllArgsConstructor
 @Getter
 @Setter
-public class GamerGameDTO {
+public class GamerGameDTO implements Serializable {
 
     @NotBlank(message = MessageConstant.FIELD_NOT_BLANK + "Gamer's name")
     private Long userID;

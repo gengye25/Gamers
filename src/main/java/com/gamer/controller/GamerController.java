@@ -2,7 +2,9 @@ package com.gamer.controller;
 
 import com.gamer.common.result.Result;
 import com.gamer.model.dto.GamerDTO;
+import com.gamer.model.dto.SearchDTO;
 import com.gamer.model.entity.Gamer;
+import com.gamer.model.vo.AutoMatchGamerVO;
 import com.gamer.service.GamerService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -10,6 +12,8 @@ import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/gamer")
@@ -30,6 +34,19 @@ public class GamerController {
         log.info("New gamer: {}", gamerDTO);
         gamerService.save(gamerDTO);
         return Result.success("Gamer Created");
+    }
+
+    @GetMapping(("/search"))
+    @Operation(summary = "Search gamers by game, level and geography")
+    public Result<List<AutoMatchGamerVO>> search(
+            @RequestParam(required = false) String game,
+            @RequestParam(required = false) String level,
+            @RequestParam(required = false) String geography
+    ) {
+        log.info("Search gamer with: game={}, level={}, geo={}", game, level, geography);
+        SearchDTO searchDTO = new SearchDTO(game, level, geography);
+        List<AutoMatchGamerVO> gamersAutoMatched = gamerService.search(searchDTO);
+        return Result.<List<AutoMatchGamerVO>>success(gamersAutoMatched);
     }
 
 

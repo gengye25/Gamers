@@ -7,28 +7,18 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
 import java.util.List;
 
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class GamerDTO {
+public class GamerDTO implements Serializable {
 
     @NotBlank(message = MessageConstant.FIELD_NOT_BLANK + "Name")
     private String name;
 
     private String geography;
-
-    private List<GameLevelDTO> games;
-
-    @Data
-    @Builder
-    @NoArgsConstructor
-    @AllArgsConstructor
-    public static class GameLevelDTO {
-        private String name;
-        private String levelCode;
-    }
 
 }

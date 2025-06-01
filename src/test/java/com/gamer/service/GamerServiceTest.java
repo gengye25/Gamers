@@ -1,4 +1,4 @@
-package com.gamer.service.impl;
+package com.gamer.service;
 
 import com.gamer.common.component.GamerGameComponent;
 import com.gamer.common.exception.BusinessException;
@@ -7,15 +7,13 @@ import com.gamer.model.entity.Gamer;
 import com.gamer.repository.GameRepository;
 import com.gamer.repository.GamerGameRepository;
 import com.gamer.repository.GamerRepository;
-import com.gamer.service.GamerGameService;
-import com.gamer.service.GamerService;
+import com.gamer.service.Impl.GamerServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -48,8 +46,8 @@ public class GamerServiceTest {
 
 
     @Test
-    void save_createUserOnly(){
-        GamerDTO gamerDTO = new GamerDTO("Tom", null, null);
+    void save_successfully() {
+        GamerDTO gamerDTO = new GamerDTO("Tom", null);
 
         Gamer savedGamer = Gamer.builder()
                 .id(1L)
@@ -63,12 +61,11 @@ public class GamerServiceTest {
         gamerServiceImpl.save(gamerDTO);
 
         verify(gamerRepository).save(any());
-        verify(gamerGameComponent, never()).bind(any());
     }
 
     @Test
     void save_shouldThrow_userAlreadyExists(){
-        GamerDTO gamerDTO = new GamerDTO("Tom", "Aarhus", null);
+        GamerDTO gamerDTO = new GamerDTO("Tom", "Aarhus");
 
         Gamer existingGamer = Gamer.builder()
                 .id(1L)
@@ -81,12 +78,4 @@ public class GamerServiceTest {
         assertThrows(BusinessException.class, () -> gamerServiceImpl.save(gamerDTO));
         verify(gamerRepository, never()).save(any());
     }
-
-    @Test
-    void save_createUserAndLinkWithAGame(){
-
-    }
-
-
-
 }
