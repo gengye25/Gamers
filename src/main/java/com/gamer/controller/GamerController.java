@@ -6,6 +6,7 @@ import com.gamer.model.entity.Gamer;
 import com.gamer.service.GamerService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -25,7 +26,7 @@ public class GamerController {
      */
     @PostMapping
     @Operation(summary = "Create a new gamer")
-    public Result save(@RequestBody GamerDTO gamerDTO) {
+    public Result save(@RequestBody @Valid GamerDTO gamerDTO) {
         log.info("New gamer: {}", gamerDTO);
         gamerService.save(gamerDTO);
         return Result.success("Gamer Created");

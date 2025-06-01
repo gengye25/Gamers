@@ -1,5 +1,7 @@
 package com.gamer.model.dto;
 
+import com.gamer.common.constant.MessageConstant;
+import jakarta.validation.constraints.NotBlank;
 import lombok.Builder;
 import lombok.Data;
 
@@ -9,6 +11,7 @@ import java.util.List;
 @Builder
 public class GamerDTO {
 
+    @NotBlank(message = MessageConstant.FIELD_NOT_BLANK + "Name")
     private String name;
 
     private String geography;
@@ -18,7 +21,7 @@ public class GamerDTO {
     @Data
     public static class GameLevelDTO {
         private String name;
-        private String level;
+        private String levelCode;
     }
 
 }
