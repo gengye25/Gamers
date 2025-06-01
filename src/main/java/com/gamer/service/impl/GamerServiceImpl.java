@@ -1,7 +1,7 @@
 package com.gamer.service.impl;
 
-import com.gamer.common.GeographyConstant;
-import com.gamer.common.MessageConstant;
+import com.gamer.common.constant.GeographyConstant;
+import com.gamer.common.constant.MessageConstant;
 import com.gamer.common.component.GamerGameComponent;
 import com.gamer.common.exception.BusinessException;
 import com.gamer.model.dto.GamerDTO;

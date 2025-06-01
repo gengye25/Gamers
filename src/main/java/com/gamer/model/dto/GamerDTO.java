@@ -1,6 +1,6 @@
 package com.gamer.model.dto;
 
-import com.gamer.common.MessageConstant;
+import com.gamer.common.constant.MessageConstant;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

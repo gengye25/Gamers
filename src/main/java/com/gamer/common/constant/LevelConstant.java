@@ -1,4 +1,4 @@
-package com.gamer.common;
+package com.gamer.common.constant;
 
 import com.gamer.common.exception.BusinessException;
 
@@ -16,9 +16,7 @@ public class LevelConstant {
     public static final String INVINCIBLE_CODE = "3";
 
     public static String convert(String code) {
-        if (code == null || code.isBlank()) {
-            throw new BusinessException(MessageConstant.INVALID_LEVEL);
-        }
+        if (code == null || code.isBlank()) code = NOOB_CODE;
         return switch (code) {
             case NOOB_CODE -> LevelConstant.NOOB;
             case PRO_CODE -> LevelConstant.PRO;

@@ -1,4 +1,4 @@
-package com.gamer.common;
+package com.gamer.common.constant;
 
 public class MessageConstant {
 

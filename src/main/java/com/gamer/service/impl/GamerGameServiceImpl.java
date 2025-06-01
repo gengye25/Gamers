@@ -1,28 +1,17 @@
 package com.gamer.service.impl;
 
-import com.gamer.common.LevelConstant;
-import com.gamer.common.MessageConstant;
+import com.gamer.common.constant.MessageConstant;
 import com.gamer.common.component.GamerGameComponent;
 import com.gamer.common.exception.BusinessException;
 import com.gamer.model.dto.GamerDTO;
 import com.gamer.model.dto.GamerGameDTO;
 import com.gamer.model.dto.GamerGameLinkDTO;
-import com.gamer.model.entity.Game;
-import com.gamer.model.entity.Gamer;
-import com.gamer.model.entity.GamerGame;
-import com.gamer.model.entity.GamerGameID;
 import com.gamer.repository.GameRepository;
-import com.gamer.repository.GamerGameRepository;
 import com.gamer.repository.GamerRepository;
 import com.gamer.service.GamerGameService;
-import jakarta.transaction.Transactional;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
-
-import java.util.Optional;
 
 @Service
 @Slf4j

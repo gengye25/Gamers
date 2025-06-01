@@ -1,6 +1,5 @@
 package com.gamer.service.impl;
 
-
 import com.gamer.repository.GameRepository;
 import com.gamer.repository.GamerGameRepository;
 import com.gamer.repository.GamerRepository;
@@ -34,12 +33,12 @@ public class GamerGameServiceTest {
     private GamerGameRepository gamerGameRepository;
 
     @Test
-    void bind_userIDWithGameID(){
+    void bindByName_userNameAndGameName(){
 
     }
 
     @Test
-    void bind_userIDWithGameIDWithLevel(){
+    void bindByName_withLevel(){
 
     }
 

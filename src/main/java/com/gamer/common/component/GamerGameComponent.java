@@ -1,7 +1,7 @@
 package com.gamer.common.component;
 
-import com.gamer.common.LevelConstant;
-import com.gamer.common.MessageConstant;
+import com.gamer.common.constant.LevelConstant;
+import com.gamer.common.constant.MessageConstant;
 import com.gamer.common.exception.BusinessException;
 import com.gamer.model.dto.GamerGameDTO;
 import com.gamer.model.entity.Game;
@@ -35,7 +35,6 @@ public class GamerGameComponent {
                 .orElseThrow(() -> new BusinessException(MessageConstant.USER_NOT_EXIST));
         Game game = gameRepository.findById(ggDTO.getGameID())
                 .orElseThrow(() -> new BusinessException(MessageConstant.GAME_NOT_EXIST));
-        if (ggDTO.getLevelCode() == null || ggDTO.getLevelCode().trim().isEmpty()) ggDTO.setLevelCode(LevelConstant.NOOB_CODE);
         String level = LevelConstant.convert(ggDTO.getLevelCode());
         GamerGameID id = new GamerGameID(gamer.getId(), game.getId());
         if(gamerGameRepository.findById(id).isEmpty()){

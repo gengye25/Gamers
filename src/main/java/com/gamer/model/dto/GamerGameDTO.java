@@ -1,12 +1,17 @@
 package com.gamer.model.dto;
 
-import com.gamer.common.MessageConstant;
+import com.gamer.common.constant.MessageConstant;
 import jakarta.validation.constraints.NotBlank;
-import lombok.Builder;
-import lombok.Data;
+import lombok.*;
+import lombok.extern.slf4j.Slf4j;
 
 @Data
+@Slf4j
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
 public class GamerGameDTO {
 
     @NotBlank(message = MessageConstant.FIELD_NOT_BLANK + "Gamer's name")

@@ -1,6 +1,5 @@
 package com.gamer.common.constant;
 
-import com.gamer.common.LevelConstant;
 import com.gamer.common.exception.BusinessException;
 import org.junit.jupiter.api.Test;
 
