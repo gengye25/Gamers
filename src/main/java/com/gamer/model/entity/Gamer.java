@@ -23,7 +23,7 @@ public class Gamer implements Serializable {
     @Column(unique = true, nullable = false)
     private String name;
 
-    @Column
+    @Column(nullable = false)
     private String geography;
 
     @OneToMany(mappedBy = "gamer", cascade = CascadeType.ALL, fetch = FetchType.LAZY)

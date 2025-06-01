@@ -5,5 +5,6 @@ import com.gamer.model.entity.GamerGame;
 
 public interface GamerGameService {
 
-    public void bind(GamerGameDTO ggDTO);
+    void bind(GamerGameDTO ggDTO);
+
 }

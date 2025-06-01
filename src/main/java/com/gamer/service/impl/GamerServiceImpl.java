@@ -1,5 +1,8 @@
 package com.gamer.service.impl;
 
+import com.gamer.common.constant.GeographyConstant;
+import com.gamer.common.constant.MessageConstant;
+import com.gamer.common.exception.BusinessException;
 import com.gamer.model.dto.GamerDTO;
 import com.gamer.model.dto.GamerGameDTO;
 import com.gamer.model.entity.Game;
@@ -30,8 +33,12 @@ public class GamerServiceImpl implements GamerService {
 
     @Transactional
     public void save(GamerDTO gamerDTO){
-        if (gamerRepository.findByName(gamerDTO.getName()).isPresent()) {
-            throw new IllegalArgumentException("Gamer with name [" + gamerDTO.getName() + "] already exists.");
+
+        if (gamerDTO.getGeography() == null || gamerDTO.getGeography().isBlank())
+            gamerDTO.setGeography(GeographyConstant.UNKNOWN);
+
+        if (gamerRepository.findByName(gamerDTO.getName()).isPresent()) { // New gamer
+            throw new BusinessException(MessageConstant.USER_ALREADY_EXIST + gamerDTO.getName());
         }
 
         Gamer gamer = Gamer.builder()
@@ -44,8 +51,8 @@ public class GamerServiceImpl implements GamerService {
         if(gamerDTO.getGames() != null && !gamerDTO.getGames().isEmpty()){
             Map<String, Game> gameCache = new HashMap<>();
             for(GamerDTO.GameLevelDTO g : gamerDTO.getGames()){
-                if (g.getName() == null || g.getName().isBlank()) {
-                    throw new IllegalArgumentException("Game name cannot be empty");
+                if (g.getName() == null || g.getName().isBlank()) { // Game name not null
+                    throw new BusinessException(MessageConstant.FIELD_NOT_BLANK + "Game");
                 }
 
                 Game game = gameCache.computeIfAbsent(g.getName(), name -> gameRepository.findByName(name)
@@ -54,7 +61,7 @@ public class GamerServiceImpl implements GamerService {
                 GamerGameDTO ggDTO = GamerGameDTO.builder()
                         .userID(gamer.getId())
                         .gameID(game.getId())
-                        .level(g.getLevel())
+                        .levelCode(g.getLevelCode())
                         .build();
 
                 gamerGameService.bind(ggDTO);
