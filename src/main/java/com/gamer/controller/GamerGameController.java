@@ -1,8 +1,10 @@
 package com.gamer.controller;
 
+import com.gamer.common.component.GamerGameComponent;
 import com.gamer.common.result.Result;
 import com.gamer.model.dto.GamerDTO;
 import com.gamer.model.dto.GamerGameDTO;
+import com.gamer.model.dto.GamerGameLinkDTO;
 import com.gamer.service.GamerGameService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -18,18 +20,20 @@ import org.springframework.web.bind.annotation.*;
 public class GamerGameController {
 
     @Autowired
-    GamerGameService gamerGameService;
+    private GamerGameService gamerGameService;
+    @Autowired
+    private GamerGameComponent gamerGameComponent;
 
     /**
      * bind gamer to a game
-     * @param ggDTO
+     * @param gamerGameLinkDTO
      * @return
      */
     @PostMapping
     @Operation(summary = "New gamer-game binding")
-    public Result link(@RequestBody @Valid GamerGameDTO ggDTO) {
-        log.info("Bind gamer to game: {}", ggDTO);
-        gamerGameService.bind(ggDTO);
+    public Result link(@RequestBody @Valid GamerGameLinkDTO gamerGameLinkDTO) {
+        log.info("Bind gamer to game: {}", gamerGameLinkDTO);
+        gamerGameService.bindByName(gamerGameLinkDTO);
         return Result.success("Linked successfully");
     }
 

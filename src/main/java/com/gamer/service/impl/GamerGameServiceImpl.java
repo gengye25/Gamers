@@ -2,8 +2,11 @@ package com.gamer.service.impl;
 
 import com.gamer.common.LevelConstant;
 import com.gamer.common.MessageConstant;
+import com.gamer.common.component.GamerGameComponent;
 import com.gamer.common.exception.BusinessException;
+import com.gamer.model.dto.GamerDTO;
 import com.gamer.model.dto.GamerGameDTO;
+import com.gamer.model.dto.GamerGameLinkDTO;
 import com.gamer.model.entity.Game;
 import com.gamer.model.entity.Gamer;
 import com.gamer.model.entity.GamerGame;
@@ -14,8 +17,12 @@ import com.gamer.repository.GamerRepository;
 import com.gamer.service.GamerGameService;
 import jakarta.transaction.Transactional;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 @Service
 @Slf4j
@@ -28,31 +35,27 @@ public class GamerGameServiceImpl implements GamerGameService {
     private GameRepository gameRepository;
 
     @Autowired
-    private GamerGameRepository gamerGameRepository;
+    private GamerGameComponent gamerGameComponent;
 
-    @Transactional
-    public void bind(GamerGameDTO ggDTO) {
-        Gamer gamer = gamerRepository.findById(ggDTO.getUserID())
+    /**
+     * binding an exist gamer to an exist game by name
+     * @param gamerGameLinkDTO
+     */
+    public void bindByName(GamerGameLinkDTO gamerGameLinkDTO) {
+        Long userID = gamerRepository.findIdByName(gamerGameLinkDTO.getUser())
                 .orElseThrow(() -> new BusinessException(MessageConstant.USER_NOT_EXIST));
-        Game game = gameRepository.findById(ggDTO.getGameID())
+        Long gameID = gameRepository.findIdByName(gamerGameLinkDTO.getGame())
                 .orElseThrow(() -> new BusinessException(MessageConstant.GAME_NOT_EXIST));
-        if (ggDTO.getLevelCode() == null || ggDTO.getLevelCode().trim().isEmpty()) ggDTO.setLevelCode(LevelConstant.NOOB_CODE);
-        String level = LevelConstant.convert(ggDTO.getLevelCode());
-        GamerGameID id = new GamerGameID(gamer.getId(), game.getId());
-        if(gamerGameRepository.findById(id).isEmpty()){
-            GamerGame gamerGame = GamerGame.builder()
-                    .id(id)
-                    .gamer(gamer)
-                    .game(game)
-                    .level(level)
-                    .build();
-            gamerGameRepository.save(gamerGame);
-            log.info("Bound gamer [{}] with game [{}] at level [{}]",
-                    gamer.getName(), game.getName(), level);
-        } else{
-            log.info("Bound Failed. Gamer [{}] already bound to game [{}]",
-                    gamer.getName(), game.getName());
-            throw new BusinessException(MessageConstant.LINK_ALREADY_EXIST);
-        }
+        GamerGameDTO gamerGameDTO = GamerGameDTO.builder()
+                .userID(userID)
+                .gameID(gameID)
+                .levelCode(gamerGameLinkDTO.getLevelCode())
+                .build();
+        gamerGameComponent.bind(gamerGameDTO);
+    }
+
+    @Override
+    public GamerDTO findGamer() {
+        return null;
     }
 }

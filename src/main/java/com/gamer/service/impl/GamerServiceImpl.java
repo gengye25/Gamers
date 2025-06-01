@@ -2,6 +2,7 @@ package com.gamer.service.impl;
 
 import com.gamer.common.GeographyConstant;
 import com.gamer.common.MessageConstant;
+import com.gamer.common.component.GamerGameComponent;
 import com.gamer.common.exception.BusinessException;
 import com.gamer.model.dto.GamerDTO;
 import com.gamer.model.dto.GamerGameDTO;
@@ -29,6 +30,7 @@ public class GamerServiceImpl implements GamerService {
     private final GameRepository gameRepository;
     private final GamerGameRepository gamerGameRepository;
     private final GamerGameService gamerGameService;
+    private final GamerGameComponent gamerGameComponent;
 
     @Transactional
     public void save(GamerDTO gamerDTO){
@@ -63,7 +65,7 @@ public class GamerServiceImpl implements GamerService {
                         .levelCode(g.getLevelCode())
                         .build();
 
-                gamerGameService.bind(ggDTO);
+                gamerGameComponent.bind(ggDTO);
             }
 
         }
