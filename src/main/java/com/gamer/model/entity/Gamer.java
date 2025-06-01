@@ -6,6 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import java.io.Serializable;
+import java.util.List;
 
 @Data
 @Builder
@@ -16,15 +17,16 @@ import java.io.Serializable;
 public class Gamer implements Serializable {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(unique = true, nullable = false)
     private String name;
 
+    @Column
     private String geography;
 
-    private String game;
-
-    @Column(nullable = false)
-    private String level;
+    @OneToMany(mappedBy = "gamer", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<GamerGame> gamerGames;
 
 }

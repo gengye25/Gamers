@@ -2,6 +2,7 @@ package com.gamer.controller;
 
 import com.gamer.common.result.Result;
 import com.gamer.model.dto.GamerDTO;
+import com.gamer.model.entity.Gamer;
 import com.gamer.service.GamerService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -29,6 +30,12 @@ public class GamerController {
         gamerService.save(gamerdto);
         return Result.success();
     }
+
+//    @GetMapping
+//    public Result<Gamer> get(){
+//
+//        return Result.success(gamer);
+//    }
 
 
 }
