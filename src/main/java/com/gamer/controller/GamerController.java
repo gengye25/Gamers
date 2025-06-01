@@ -32,11 +32,5 @@ public class GamerController {
         return Result.success("Gamer Created");
     }
 
-//    @GetMapping
-//    public Result<Gamer> get(){
-//
-//        return Result.success(gamer);
-//    }
-
 
 }

@@ -1,7 +1,7 @@
 package com.gamer.service.impl;
 
-import com.gamer.common.constant.LevelConstant;
-import com.gamer.common.constant.MessageConstant;
+import com.gamer.common.LevelConstant;
+import com.gamer.common.MessageConstant;
 import com.gamer.common.exception.BusinessException;
 import com.gamer.model.dto.GamerGameDTO;
 import com.gamer.model.entity.Game;

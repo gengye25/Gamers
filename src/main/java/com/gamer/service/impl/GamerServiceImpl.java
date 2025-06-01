@@ -1,13 +1,12 @@
 package com.gamer.service.impl;
 
-import com.gamer.common.constant.GeographyConstant;
-import com.gamer.common.constant.MessageConstant;
+import com.gamer.common.GeographyConstant;
+import com.gamer.common.MessageConstant;
 import com.gamer.common.exception.BusinessException;
 import com.gamer.model.dto.GamerDTO;
 import com.gamer.model.dto.GamerGameDTO;
 import com.gamer.model.entity.Game;
 import com.gamer.model.entity.Gamer;
-import com.gamer.model.entity.GamerGame;
 import com.gamer.repository.GameRepository;
 import com.gamer.repository.GamerGameRepository;
 import com.gamer.repository.GamerRepository;

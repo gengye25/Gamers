@@ -1,4 +1,4 @@
-package com.gamer.common.constant;
+package com.gamer.common;
 
 public class GeographyConstant {
 
