@@ -5,4 +5,4 @@ gamer:
     port: 3306
     database: gamer_demo
     username: root
-    password: "lithium233"
+    password: "password"
