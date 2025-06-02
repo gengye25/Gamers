@@ -104,7 +104,7 @@ Dynamic, consistence with SQL, Easier to debug (with hibernate)
 
 ### Why component?
 
-Still not user-friendly (or programmer friendly?) enough to be a service, as it operates user_id and game_id directly, which are not open to external environment. </br>
+Still not user-friendly (or programmer friendly?) enough to be a service, as it operates user_id and game_id directly, which are not open to external. </br>
 A more practical reason: to let *bindByName* call it with `@Transactional`.
 
 ### Security studies
