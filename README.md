@@ -15,7 +15,7 @@ cd Gamers
 ```
 
 ### Initialize the Database
-- sql/gamer_demo.sql : run the script to load the databases
+- sql/gamer_demo.sql : run the script to load the database, I used TablePlus but I think IDEA / Terminal also works?
 - src/main/resources/application-dev.yml : datasource
   - *database* - your database name
   - *username* - your username
