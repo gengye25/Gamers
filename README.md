@@ -31,6 +31,7 @@ mvn clean install
 mvn spring-boot:run
 ```
 The service will start on: http://localhost:8080
+API Docs: http://localhost:8080/doc.html
 
 ### Run tests
 ```bash
@@ -50,6 +51,7 @@ mvn test
 ---
 
 ## API Endpoints
+//TODO: requestbody / curl example
 
 **POST /gamer/save** -- Create a new gamer
 
