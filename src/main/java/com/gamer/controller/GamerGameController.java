@@ -1,9 +1,7 @@
 package com.gamer.controller;
 
-import com.gamer.common.component.GamerGameComponent;
+import com.gamer.component.GamerGameComponent;
 import com.gamer.common.result.Result;
-import com.gamer.model.dto.GamerDTO;
-import com.gamer.model.dto.GamerGameDTO;
 import com.gamer.model.dto.GamerGameLinkDTO;
 import com.gamer.service.GamerGameService;
 import io.swagger.v3.oas.annotations.Operation;

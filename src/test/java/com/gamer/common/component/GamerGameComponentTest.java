@@ -1,6 +1,7 @@
 package com.gamer.common.component;
 
 import com.gamer.common.exception.BusinessException;
+import com.gamer.component.GamerGameComponent;
 import com.gamer.model.dto.GamerGameDTO;
 import com.gamer.model.entity.Game;
 import com.gamer.model.entity.Gamer;

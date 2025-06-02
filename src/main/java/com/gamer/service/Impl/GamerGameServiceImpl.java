@@ -1,7 +1,7 @@
 package com.gamer.service.Impl;
 
 import com.gamer.common.constant.MessageConstant;
-import com.gamer.common.component.GamerGameComponent;
+import com.gamer.component.GamerGameComponent;
 import com.gamer.common.exception.BusinessException;
 import com.gamer.model.dto.GamerDTO;
 import com.gamer.model.dto.GamerGameDTO;

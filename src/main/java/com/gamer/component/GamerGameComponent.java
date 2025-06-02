@@ -1,4 +1,4 @@
-package com.gamer.common.component;
+package com.gamer.component;
 
 import com.gamer.common.constant.LevelConstant;
 import com.gamer.common.constant.MessageConstant;
